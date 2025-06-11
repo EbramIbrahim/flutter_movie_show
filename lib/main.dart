@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       const SystemUiOverlayStyle(statusBarColor: Colors.transparent),
     );
     return BlocProvider(
-      create: (context) => SplashCubit(),
+      create: (context) => SplashCubit()..checkAuthenticationState(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: AppTheme.appTheme,

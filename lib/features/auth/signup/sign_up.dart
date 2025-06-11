@@ -1,12 +1,12 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/gestures.dart';
 import 'package:movie_show/core/widgets/primary_button_widget.dart';
 import 'package:movie_show/core/widgets/primary_text_field_widget.dart';
-import 'package:movie_show/features/auth/signup/sign_up.dart';
+import 'package:movie_show/features/auth/login/presentation/login_screen.dart';
 import '../../../../core/navigation/app_navigator.dart';
 
-class LoginScreen extends StatelessWidget {
-  LoginScreen({super.key});
+class SignUp extends StatelessWidget {
+  SignUp({super.key});
 
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
@@ -18,7 +18,7 @@ class LoginScreen extends StatelessWidget {
         minimum: EdgeInsets.only(top: 100, right: 16, left: 16),
         child: Column(
           children: [
-            _signInText(),
+            _signUpText(),
             SizedBox(height: 30),
             PrimaryTextFieldWidget(
               hintText: 'Email',
@@ -32,7 +32,7 @@ class LoginScreen extends StatelessWidget {
             SizedBox(height: 20),
             PrimaryButtonWidget(buttonText: 'Sign In', onPress: () {}),
             const SizedBox(height: 20),
-            _signupText(context),
+            _signInText(context),
           ],
         ),
       ),
@@ -40,25 +40,25 @@ class LoginScreen extends StatelessWidget {
   }
 }
 
-Widget _signInText() {
+Widget _signUpText() {
   return Text(
-    'Sign In',
+    'Sign Up',
     style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
   );
 }
 
-Widget _signupText(BuildContext context) {
+Widget _signInText(BuildContext context) {
   return Text.rich(
     TextSpan(
       children: [
-        const TextSpan(text: "Don't you have account?"),
+        const TextSpan(text: "have an account?"),
         TextSpan(
-          text: ' Sign Up',
+          text: ' Sign In',
           style: const TextStyle(color: Colors.blue),
           recognizer:
               TapGestureRecognizer()
                 ..onTap = () {
-                  AppNavigator.push(context, SignUp());
+                  AppNavigator.push(context, LoginScreen());
                 },
         ),
       ],
