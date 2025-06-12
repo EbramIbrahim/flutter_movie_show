@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movie_show/core/assets/image_assets.dart';
-import 'package:movie_show/core/navigation/app_navigator.dart';
-import 'package:movie_show/features/auth/login/presentation/login_screen.dart';
-import 'package:movie_show/features/home/presentation/home_screen.dart';
+import 'package:movie_show/core/navigation/app_router.dart';
 import 'package:movie_show/features/splash/presentation/splash_cubit.dart';
 import 'package:movie_show/features/splash/presentation/splash_state.dart';
 
@@ -16,10 +15,10 @@ class SplashScreen extends StatelessWidget {
       body: BlocListener<SplashCubit, SplashState>(
         listener: (context, state) {
           if (state is Authenticated) {
-            AppNavigator.pushReplacement(context, HomeScreen());
+            GoRouter.of(context).pushReplacement(AppRouter.homeScreen);
           }
           if (state is UnAuthenticated) {
-            AppNavigator.pushReplacement(context, LoginScreen());
+            GoRouter.of(context).pushReplacement(AppRouter.loginScreen);
           }
         },
         child: Stack(

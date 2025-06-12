@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
 import 'package:flutter/gestures.dart';
+import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:movie_show/core/widgets/primary_button_widget.dart';
 import 'package:movie_show/core/widgets/primary_text_field_widget.dart';
-import 'package:movie_show/features/auth/login/presentation/login_screen.dart';
-import '../../../../core/navigation/app_navigator.dart';
+
+import '../../../core/navigation/app_router.dart';
 
 class SignUp extends StatelessWidget {
   SignUp({super.key});
@@ -58,7 +59,7 @@ Widget _signInText(BuildContext context) {
           recognizer:
               TapGestureRecognizer()
                 ..onTap = () {
-                  AppNavigator.push(context, LoginScreen());
+                  GoRouter.of(context).pushReplacement(AppRouter.loginScreen);
                 },
         ),
       ],
