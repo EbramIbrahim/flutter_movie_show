@@ -32,7 +32,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
-/lib/core/constant/end_points.dart/
+/lib/core/constant/end_points.dart
 
 # Symbolication related
 app.*.symbols
